@@ -43,6 +43,10 @@ const getPlaylistById = asyncHandler(async (req, res) => {
     const list=await playlist.findById(playlistId);
     console.log(list);
     console.log("name of playlist is "+list.name)
+    return res
+    .status(201)
+    .json(new ApiResponse(200,list, "These are all playlists"));
+
 })
 
 const addVideoToPlaylist = asyncHandler(async (req, res) => {

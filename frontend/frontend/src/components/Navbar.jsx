@@ -17,7 +17,7 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated, logout }) => {
 
         <div className="space-x-4">
           <Link to="/" className="text-white hover:text-gray-300">Home</Link>
-          <Link to="/dashboard" className="text-white hover:text-gray-300">Dashboard</Link>
+          <Link to="/Home" className="text-white hover:text-gray-300">Dashboard</Link>
           <Link to="/actions" className="text-white hover:text-gray-300">Actions</Link>
          {!isAuthenticated && <Link to="/login" className="text-white hover:text-gray-300">login</Link>}
          {!isAuthenticated && <Link to="/Register" className="text-white hover:text-gray-300">Register</Link>}

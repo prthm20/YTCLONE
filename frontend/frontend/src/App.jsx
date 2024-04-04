@@ -14,7 +14,7 @@ import Allviedeos from './components/Allviedeos';
 import Actions from './components/Actions';
 import Createplaylist from './components/Createplaylist';
 import Addtoplaylist from './components/Addtoplaylist';
-//import Dashboard from './components/Dashboard';
+import Dashboard from './components/Dashboard';
 
 const App = () => {
   // State to manage authentication status
@@ -56,6 +56,7 @@ const App = () => {
       <Routes>
         
         <Route path="/" element={<Allviedeos isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} cookies={cookies} />} />
+        <Route path="/Home" element={<Home />} />
         <Route path="/actions" element={<Actions isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} logout={logout} />} />
         <Route path="/login" element={<Login setCookies={setCookies} setIsAuthenticated={setIsAuthenticated}/>} />
         <Route path="/register" element={<RegisterForm />} />
@@ -65,6 +66,8 @@ const App = () => {
         <Route path="/createplaylist" element={<Createplaylist isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} cookies={cookies}/>} />
         <Route path="/Register" element={<RegisterForm  />}/>
         <Route path="/addtoplaylist" element={<Addtoplaylist  />}/>
+        <Route path="/dashboard" element={<Dashboard isAuthenticated={isAuthenticated} cookies={cookies} />}/>
+
        {/* <Route path="/getall" element={<Allviedeos isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} cookies={cookies}/>} />*/}
         
       </Routes>

@@ -38,7 +38,7 @@ const publishAVideo = asyncHandler(async (req, res) => {
           owner:req.user._id,
 
     })
-   // console.log(user);
+    console.log(user);
 })
 //completed
 const getVideoById = asyncHandler(async (req, res) => {
@@ -50,6 +50,10 @@ const getVideoById = asyncHandler(async (req, res) => {
     if(!vid){
         throw new ApiError(400,"viedeo not found")
     }
+    return res
+.status(201)
+.json(new ApiResponse(200,vid, "These are all viedeos by channel"));
+       
     //console.log(vid)
     //console.log(vid.title);
 })

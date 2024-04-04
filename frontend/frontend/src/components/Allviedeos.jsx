@@ -37,10 +37,10 @@ const Allviedeos = ({ isAuthenticated, setIsAuthenticated,cookies }) => {
                         <source src={video.viedeoFile} type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
-                    <a href={video.viedeoFile} target="_blank" rel="noopener noreferrer"  className='text-blue-500 hover:underline block mb-2'>Watch Video</a>
-                    <Commentviedeo videoId={video._id} cookies={cookies} />
+                    <a href={video.viedeoFile} target="_blank" rel="noopener noreferrer"  className='text-black-500 hover:underline block mb-2'>Watch Video</a>
+                   {isAuthenticated && <Commentviedeo videoId={video._id} cookies={cookies} />}
                     <Viedeocomments videoId={video._id} />
-                   <Addtoplaylist cookies={cookies} videoToAdd={video._id}/> 
+                   {isAuthenticated &&<Addtoplaylist cookies={cookies} videoToAdd={video._id}/> }
             
                 </div>
             ))}
