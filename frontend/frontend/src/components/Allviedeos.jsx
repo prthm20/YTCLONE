@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Commentviedeo from './Commetnviedeo';
 import Viedeocomments from './Viedeocomments';
+import Addtoplaylist from './Addtoplaylist';
 
 
 
@@ -39,7 +40,7 @@ const Allviedeos = ({ isAuthenticated, setIsAuthenticated,cookies }) => {
                     <a href={video.viedeoFile} target="_blank" rel="noopener noreferrer"  className='text-blue-500 hover:underline block mb-2'>Watch Video</a>
                     <Commentviedeo videoId={video._id} cookies={cookies} />
                     <Viedeocomments videoId={video._id} />
-                    
+                   <Addtoplaylist cookies={cookies} videoToAdd={video._id}/> 
             
                 </div>
             ))}

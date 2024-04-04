@@ -9,7 +9,7 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 const getAllVideos = asyncHandler(async (req, res) => {
 
 const allviedeos=await Viedeo.find({});
-console.log(allviedeos);
+//console.log(allviedeos);
 return res
 .status(201)
 .json(new ApiResponse(200,allviedeos, "These are all viedeos by channel"));
@@ -38,7 +38,7 @@ const publishAVideo = asyncHandler(async (req, res) => {
           owner:req.user._id,
 
     })
-    console.log(user);
+   // console.log(user);
 })
 //completed
 const getVideoById = asyncHandler(async (req, res) => {
@@ -50,8 +50,8 @@ const getVideoById = asyncHandler(async (req, res) => {
     if(!vid){
         throw new ApiError(400,"viedeo not found")
     }
-    console.log(vid)
-    console.log(vid.title);
+    //console.log(vid)
+    //console.log(vid.title);
 })
 //completed
 const updateVideo = asyncHandler(async (req, res) => {

@@ -62,7 +62,7 @@ router.route("/subscribed/:subscriberId").get(verifyJwt,getSubscribedChannels);
 router.route("/createplaylist").post(verifyJwt,createPlaylist);
 router.route("/userplaylist").get(verifyJwt,getUserPlaylists);
 router.route("/playlistbyid/:playlistId").get(verifyJwt,getPlaylistById);
-router.route("/addtoplaylist/:playlistId/:videoId").post(verifyJwt,addVideoToPlaylist);
+router.route("/addtoplaylist/:playlistId/:videoId").post(addVideoToPlaylist);
 router.route("/removefromplaylist/:playlistId/:videoId").delete(verifyJwt,removeVideoFromPlaylist);
 router.route("/deleteplaylist/:playlistId").delete(verifyJwt,deletePlaylist);
 router.route("/updateplaylist/:playlistId").put(verifyJwt,updatePlaylist);

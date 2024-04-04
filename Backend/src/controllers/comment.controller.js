@@ -8,7 +8,7 @@ const getVideoComments = asyncHandler(async (req, res) => {
     //TODO: get all comments for a video
     const {videoId}=req.params
     const allcomments=await Comment.find({viedeo:videoId});
-    console.log(allcomments);
+  //  console.log(allcomments);
     return res
     .status(201)
     .json(new ApiResponse(200,allcomments, "These are ary"));
@@ -25,7 +25,7 @@ const addComment = asyncHandler(async (req, res) => {
         owner:req.user._id
         
     })
-    console.log(comment);
+ //   console.log(comment);
     
 
 

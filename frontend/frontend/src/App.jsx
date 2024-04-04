@@ -13,6 +13,7 @@ import ChangePassword from './components/ChangePassword';
 import Allviedeos from './components/Allviedeos';
 import Actions from './components/Actions';
 import Createplaylist from './components/Createplaylist';
+import Addtoplaylist from './components/Addtoplaylist';
 //import Dashboard from './components/Dashboard';
 
 const App = () => {
@@ -63,6 +64,7 @@ const App = () => {
         <Route path="/channelviedeos" element={<VideoList isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} cookies={cookies}/>} />
         <Route path="/createplaylist" element={<Createplaylist isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} cookies={cookies}/>} />
         <Route path="/Register" element={<RegisterForm  />}/>
+        <Route path="/addtoplaylist" element={<Addtoplaylist  />}/>
        {/* <Route path="/getall" element={<Allviedeos isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} cookies={cookies}/>} />*/}
         
       </Routes>

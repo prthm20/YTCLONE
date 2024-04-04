@@ -28,9 +28,12 @@ const createPlaylist = asyncHandler(async (req, res) => {
 const getUserPlaylists = asyncHandler(async (req, res) => {
     //TODO: get user playlists
     const userId= req.user._id;
-    const list=await playlist.find({userId:userId});
-    console.log(userId);
-    console.log(list.playlist);
+    const list=await playlist.find({owner:userId});
+    //console.log(userId);
+    console.log(list);
+    return res
+    .status(201)
+    .json(new ApiResponse(200,list, "These are all playlists"));
 
 })
 
@@ -43,18 +46,19 @@ const getPlaylistById = asyncHandler(async (req, res) => {
 })
 
 const addVideoToPlaylist = asyncHandler(async (req, res) => {
-    const {name, videoId,} = req.params
-    const list =await playlist.find({name:name});
+    const {playlistId, videoId,} = req.params
+    const list =await playlist.findOne({_id:playlistId});
     if(!list){
         throw new ApiError(400,"Playlist not found");
     }
-    const viedeo=await Viedeo.findById(videoId);
-    console.log(viedeo);
+    console.log(list)
+    const viedeos=await Viedeo.findById(videoId);
+    console.log(viedeos);
     console.log(videoId)
-    if(!viedeo){
+    if(!viedeos){
         throw new ApiError(400,"Viedeo not found");
     }
-    list.viedeo.push(viedeo);
+    list.viedeo.push(viedeos);
     await list.save();
     console.log(list);
     return res

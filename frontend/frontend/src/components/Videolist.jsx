@@ -6,6 +6,7 @@ import Commentviedeo from './Commetnviedeo';
 
 const VideoList = ({ isAuthenticated, setIsAuthenticated,cookies }) => {
     const [videos, setVideos] = useState([]);
+   
 
     useEffect(() => {
         fetchVideos();
@@ -23,6 +24,7 @@ const VideoList = ({ isAuthenticated, setIsAuthenticated,cookies }) => {
             console.error('Error fetching videos:', error);
         }
     };
+   
 
     return (
         <div>
@@ -39,11 +41,14 @@ const VideoList = ({ isAuthenticated, setIsAuthenticated,cookies }) => {
                         Your browser does not support the video tag.
                     </video>
                     <a href={video.viedeoFile} target="_blank" rel="noopener noreferrer">Watch Video</a>
+                    
                     <DeleteVideo videoId={video._id} />
                     <Commentviedeo videoId={video._id} cookies={cookies} />
             
                 </div>
             ))}
+           
+
             </div>
         </div>
     );
