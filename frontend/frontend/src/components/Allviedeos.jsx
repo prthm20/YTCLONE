@@ -6,6 +6,7 @@ import Addtoplaylist from './Addtoplaylist';
 import Togglesubscribe from './Togglesubscribe';
 import Subscribers from './Subscribers';
 import Subscribed from './Subscribed';
+import Chanprofile from './Chanprofile';
 
 
 
@@ -46,7 +47,7 @@ const Allviedeos = ({ isAuthenticated, setIsAuthenticated,cookies }) => {
                     <Viedeocomments videoId={video._id} />
                    {isAuthenticated &&<Addtoplaylist cookies={cookies} videoToAdd={video._id}/> }
                    <Togglesubscribe cookies={cookies} channelId={video.owner}/>
-                   <Subscribers cookies={cookies} channelId={video.owner}/>
+                   <Chanprofile cookies={cookies} channelId={video.owner}/>
 
        
             

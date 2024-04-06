@@ -5,7 +5,7 @@ import Commentviedeo from './Commetnviedeo';
 import Viedeocomments from './Viedeocomments';
 import Deletemycomments from './Deletemycomments';
 
-const VideoList = ({ isAuthenticated, setIsAuthenticated, cookies }) => {
+const Channel = ({ isAuthenticated, setIsAuthenticated, cookies,channel }) => {
     const [videos, setVideos] = useState([]);
     
     useEffect(() => {
@@ -15,11 +15,12 @@ const VideoList = ({ isAuthenticated, setIsAuthenticated, cookies }) => {
     const fetchVideos = async () => {
         try {
             const accessToken = cookies.accessToken;
-            const response = await axios.get(`http://localhost:8000/api/v1/users/channelviedeos`, {
+            const response = await axios.get(`http://localhost:8000/api/v1/users/chanviedeos/${channel}`, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`
                 }
             });
+            console.log(response.data)
             setVideos(response.data.data);
         } catch (error) {
             console.error('Error fetching videos:', error);
@@ -47,10 +48,6 @@ const VideoList = ({ isAuthenticated, setIsAuthenticated, cookies }) => {
                             Watch Video
                         </a>
                         <div className="mt-2">
-                            <DeleteVideo videoId={video._id} />
-                         {/*   <Viedeocomments videoId={video._id} />*/}
-                            <Deletemycomments videoId={video._id} cookies={cookies}/>
-
                             
                         </div>
                     </div>
@@ -60,4 +57,4 @@ const VideoList = ({ isAuthenticated, setIsAuthenticated, cookies }) => {
     );
 };
 
-export default VideoList;
+export default Channel;

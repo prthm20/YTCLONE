@@ -10,7 +10,7 @@ import { get } from "mongoose";
 import { addComment, deleteComment, getVideoComments, updateComment } from "../controllers/comment.controller.js";
 import { getSubscribedChannels, getUserChannelSubscribers, toggleSubscription } from "../controllers/subscription.controller.js";
 import { addVideoToPlaylist, createPlaylist, deletePlaylist, getPlaylistById, getUserPlaylists, removeVideoFromPlaylist, updatePlaylist } from "../controllers/playlist.controller.js";
-import { getChannelStats, getChannelVideos } from "../controllers/dashboard.controller.js";
+import { getChanVideos, getChannelStats, getChannelVideos } from "../controllers/dashboard.controller.js";
 
 const router=Router();
 
@@ -70,6 +70,7 @@ router.route("/updateplaylist/:playlistId").put(verifyJwt,updatePlaylist);
 //dashboard routes
 router.route("/channelstats").get(verifyJwt,getChannelStats)
 router.route("/channelviedeos").get(verifyJwt,getChannelVideos)
+router.route("/chanviedeos/:channel").get(verifyJwt,getChanVideos)
 
 //secured routes
 router.route("/logout").post(verifyJwt,logoutuser)

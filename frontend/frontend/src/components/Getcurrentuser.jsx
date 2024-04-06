@@ -4,6 +4,7 @@ import UserChannelProfile from './UserChannelProfile';
 import Togglesubscribe from './Togglesubscribe';
 import Subscribers from './Subscribers';
 import Subscribed from './Subscribed';
+import Channel from './Channel';
 
 const Getcurrentuser = (cookies) => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -38,9 +39,11 @@ const Getcurrentuser = (cookies) => {
       <h1>Welcome, {currentUser.username}</h1>
       <p>Email: {currentUser.email}</p>
       <p>Full Name: {currentUser.fullname}</p>
+      <p>{currentUser._id}</p>
       
       {/* Add more user information as needed */}
       <Subscribers cookies={cookies.cookies} channelId={currentUser._id}/>
+      <Channel cookies={cookies.cookies} channel={currentUser._id}/>
       <Subscribed cookies={cookies.cookies}/>
     </div>
   );

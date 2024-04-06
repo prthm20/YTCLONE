@@ -26,9 +26,19 @@ return res
 .status(201)
 .json(new ApiResponse(200,allviedeos, "These are all viedeos by channel"));
 });
+const getChanVideos = asyncHandler(async (req, res) => {
+    // TODO: Get all the videos uploaded by the channel
+ const {channel}=req.params;
+const allviedeos=await Viedeo.find({owner:channel});
+console.log(allviedeos);
+return res
+.status(201)
+.json(new ApiResponse(200,allviedeos, "These are all viedeos by channel"));
+});
 
 
 export {
     getChannelStats, 
-    getChannelVideos
+    getChannelVideos,
+    getChanVideos
     }
