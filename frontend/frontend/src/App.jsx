@@ -17,6 +17,7 @@ import Addtoplaylist from './components/Addtoplaylist';
 import Dashboard from './components/Dashboard';
 import Getcurrentuser from './components/Getcurrentuser';
 import Togglesubscribe from './components/Togglesubscribe';
+import Subscribers from './components/Subscribers';
 
 const App = () => {
   // State to manage authentication status

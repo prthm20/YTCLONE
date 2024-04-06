@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import UserChannelProfile from './UserChannelProfile';
 import Togglesubscribe from './Togglesubscribe';
+import Subscribers from './Subscribers';
+import Subscribed from './Subscribed';
 
 const Getcurrentuser = (cookies) => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -36,9 +38,10 @@ const Getcurrentuser = (cookies) => {
       <h1>Welcome, {currentUser.username}</h1>
       <p>Email: {currentUser.email}</p>
       <p>Full Name: {currentUser.fullname}</p>
-      {/* Add more user information as needed */}
-      <p>{currentUser._id}</p>
       
+      {/* Add more user information as needed */}
+      <Subscribers cookies={cookies.cookies} channelId={currentUser._id}/>
+      <Subscribed cookies={cookies.cookies}/>
     </div>
   );
 };

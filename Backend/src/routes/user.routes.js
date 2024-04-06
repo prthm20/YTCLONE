@@ -56,7 +56,7 @@ router.route("/deletecomment/:commentId").delete(verifyJwt,deleteComment);
 //subscription routes
 router.route("/subscribe/:channelId").post(verifyJwt,toggleSubscription);
 router.route("/subscribers/:channelId").get(verifyJwt,getUserChannelSubscribers);
-router.route("/subscribed/:subscriberId").get(verifyJwt,getSubscribedChannels);
+router.route("/subscribed").get(verifyJwt,getSubscribedChannels);
 
 //playlist routes
 router.route("/createplaylist").post(verifyJwt,createPlaylist);

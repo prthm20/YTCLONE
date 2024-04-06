@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const Togglesubscribe = ({channelId, cookies }) => {
   
-
+const [subscribed,setsubscribed]=useState();
   
 
   
@@ -18,7 +18,7 @@ const response = await axios.post(`http://localhost:8000/api/v1/users/subscribe/
             Authorization: `Bearer ${accessToken}`,
 
           }})
-
+          setsubscribed(!subscribed)
           console.log(response)
         };
 
@@ -28,7 +28,7 @@ const response = await axios.post(`http://localhost:8000/api/v1/users/subscribe/
   return (
     <div>
       {
-        <button onClick={checkSubscription}>Unsubscribe</button>
+        <button onClick={checkSubscription} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">{subscribed ? 'Unsubscribe' : 'Subscribe'}</button>
        
       }
     </div>

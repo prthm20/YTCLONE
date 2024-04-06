@@ -4,6 +4,8 @@ import Commentviedeo from './Commetnviedeo';
 import Viedeocomments from './Viedeocomments';
 import Addtoplaylist from './Addtoplaylist';
 import Togglesubscribe from './Togglesubscribe';
+import Subscribers from './Subscribers';
+import Subscribed from './Subscribed';
 
 
 
@@ -44,12 +46,14 @@ const Allviedeos = ({ isAuthenticated, setIsAuthenticated,cookies }) => {
                     <Viedeocomments videoId={video._id} />
                    {isAuthenticated &&<Addtoplaylist cookies={cookies} videoToAdd={video._id}/> }
                    <Togglesubscribe cookies={cookies} channelId={video.owner}/>
+                   <Subscribers cookies={cookies} channelId={video.owner}/>
 
        
             
                 </div>
             ))}
             </div>
+            <Subscribed cookies={cookies}/>
         </div>
     );
 };
