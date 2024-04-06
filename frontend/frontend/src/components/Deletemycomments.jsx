@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Deletecomment from './Deletecomment';
 
-const Viedeocomments = ({ videoId }) => {
+const Deletemycomments = ({ videoId, cookies  }) => {
     const [comments, setComments] = useState([]);
     
     useEffect(() => {
@@ -11,7 +11,8 @@ const Viedeocomments = ({ videoId }) => {
 
     const fetchComments = async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/api/v1/users/getcomments/${videoId}`);
+            const accessToken = cookies.accessToken;
+            const response = await axios.get(`http://localhost:8000/api/v1/users/getcomments/${videoId}`,{   headers: { Authorization: `Bearer ${accessToken}` } });
             setComments(response.data.data);
         } catch (error) {
             console.error('Error fetching comments:', error);
@@ -25,7 +26,7 @@ const Viedeocomments = ({ videoId }) => {
                 {comments.map(comment => (
                     <li key={comment._id} className="border-b py-2">
                         <p className="text-gray-800">{comment.content}</p>
-                        
+                        <Deletecomment commentId={comment._id} cookies={cookies}/>
                     </li>
                 ))}
             </ul>
@@ -33,7 +34,7 @@ const Viedeocomments = ({ videoId }) => {
     );
 };
 
-export default Viedeocomments;
+export default Deletemycomments;
 
 
 

@@ -33,9 +33,7 @@ const Dashboard = ({ cookies }) => {
             });
             const playlistVideos = await Promise.all(
                 playlistResponse.data.data.viedeo.map(async (videoId) => {
-                    const videoResponse = await axios.get(`http://localhost:8000/api/v1/users/viedeos/${videoId}`, {
-                        headers: { Authorization: `Bearer ${accessToken}` }
-                    });
+                    const videoResponse = await axios.get(`http://localhost:8000/api/v1/users/viedeos/${videoId}`, {   headers: { Authorization: `Bearer ${accessToken}` } });
                     return videoResponse.data.data;
                 })
             );

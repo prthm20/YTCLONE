@@ -3,6 +3,7 @@ import axios from 'axios';
 import DeleteVideo from './DeleteViedeo';
 import Commentviedeo from './Commetnviedeo';
 import Viedeocomments from './Viedeocomments';
+import Deletemycomments from './Deletemycomments';
 
 const VideoList = ({ isAuthenticated, setIsAuthenticated, cookies }) => {
     const [videos, setVideos] = useState([]);
@@ -47,7 +48,9 @@ const VideoList = ({ isAuthenticated, setIsAuthenticated, cookies }) => {
                         </a>
                         <div className="mt-2">
                             <DeleteVideo videoId={video._id} />
-                            <Viedeocomments videoId={video._id} />
+                         {/*   <Viedeocomments videoId={video._id} />*/}
+                            <Deletemycomments videoId={video._id} cookies={cookies}/>
+
                             
                         </div>
                     </div>
