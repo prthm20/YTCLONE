@@ -3,6 +3,7 @@ import axios from 'axios';
 import Commentviedeo from './Commetnviedeo';
 import Viedeocomments from './Viedeocomments';
 import Addtoplaylist from './Addtoplaylist';
+import Togglesubscribe from './Togglesubscribe';
 
 
 
@@ -38,9 +39,13 @@ const Allviedeos = ({ isAuthenticated, setIsAuthenticated,cookies }) => {
                         Your browser does not support the video tag.
                     </video>
                     <a href={video.viedeoFile} target="_blank" rel="noopener noreferrer"  className='text-black-500 hover:underline block mb-2'>Watch Video</a>
+                    
                    {isAuthenticated && <Commentviedeo videoId={video._id} cookies={cookies} />}
                     <Viedeocomments videoId={video._id} />
                    {isAuthenticated &&<Addtoplaylist cookies={cookies} videoToAdd={video._id}/> }
+                   <Togglesubscribe cookies={cookies} channelId={video.owner}/>
+
+       
             
                 </div>
             ))}

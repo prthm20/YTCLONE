@@ -15,6 +15,8 @@ import Actions from './components/Actions';
 import Createplaylist from './components/Createplaylist';
 import Addtoplaylist from './components/Addtoplaylist';
 import Dashboard from './components/Dashboard';
+import Getcurrentuser from './components/Getcurrentuser';
+import Togglesubscribe from './components/Togglesubscribe';
 
 const App = () => {
   // State to manage authentication status
@@ -67,6 +69,8 @@ const App = () => {
         <Route path="/Register" element={<RegisterForm  />}/>
         <Route path="/addtoplaylist" element={<Addtoplaylist  />}/>
         <Route path="/dashboard" element={<Dashboard isAuthenticated={isAuthenticated} cookies={cookies} />}/>
+        <Route path="/currentuser" element={<Getcurrentuser cookies={cookies}/>}/>
+        
 
        {/* <Route path="/getall" element={<Allviedeos isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} cookies={cookies}/>} />*/}
         

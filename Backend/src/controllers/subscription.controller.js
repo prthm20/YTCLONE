@@ -7,9 +7,10 @@ import {asyncHandler} from "../utils/asyncHandler.js"
 
 
 const toggleSubscription = asyncHandler(async (req, res) => {
-    const {channelId} = req.params
+    const {channelId} =req.params
     // TODO: toggle subscription
     const user=req.user._id;
+    console.log(user)
 
     const issubscribed=await Subscription.findOne({
         subscriber:user,
@@ -32,11 +33,11 @@ const toggleSubscription = asyncHandler(async (req, res) => {
 
 
     }
-//console.log(channel);
+
 //const issubscribedto =channel.subscribers.includes(user);
 
 return res
-.status(400)
+.status(200)
 .json(new ApiResponse(200,{},"done"));
 })
 

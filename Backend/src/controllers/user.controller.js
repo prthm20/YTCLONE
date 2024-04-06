@@ -271,9 +271,11 @@ const changecurrentpassword = asyncHandler(async (req, res) => {
 });
 //completed
 const getCurrentUser = asyncHandler(async (req, res) => {
+  const ob=req.user;
+  console.log(ob);
   return res
     .status(200)
-    .json(new ApiResponse(200, req.user, "current user fetched successfully"));
+    .json(new ApiResponse(200,req.user, "current user fetched successfully"));
 });
 //completed
 const updateAccountdetails = asyncHandler(async (req, res) => {
@@ -357,11 +359,11 @@ const getUserchannelprofile = asyncHandler(async (req, res) => {
         subscribercount: {
           $size: "$subscribers",
         },
-
+        
         channelssubscribedto: {
           $size: "$subscribedTo",
         },
-
+        
         isSubscribedto: {
           $cond: {
             if: { $in: [req?.user._id, "$subscribers.subscriber"] },
@@ -370,6 +372,9 @@ const getUserchannelprofile = asyncHandler(async (req, res) => {
           },
         },
       },
+
+    },
+    {
 
       $project: {
         fullname: 1,
@@ -380,15 +385,16 @@ const getUserchannelprofile = asyncHandler(async (req, res) => {
         channelssubscribedto: 1,
         avatar: 1,
       },
-    },
-  ]);
+      
+    }
+ ] );
   if (!channel?.length) {
     throw new ApiError(400, "channel does not exist");
   }
-
+console.log(channel)
   return res
     .status(200)
-    .json(new ApiResponse(200, channel[0], "User channel fetched succesfully"));
+    .json(new ApiResponse(200, channel, "User channel fetched succesfully"));
 });
 
 const getWatchhistory = asyncHandler(async (req, res) => {
