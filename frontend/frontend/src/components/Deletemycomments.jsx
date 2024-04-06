@@ -35,7 +35,3 @@ const Deletemycomments = ({ videoId, cookies  }) => {
 };
 
 export default Deletemycomments;
-
-
-
-

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import DeletePlaylist from './DeletePlaylist';
 
 const Dashboard = ({ cookies }) => {
     const [playlists, setPlaylists] = useState([]);
@@ -55,6 +56,7 @@ const Dashboard = ({ cookies }) => {
                 {playlists.map((playlist) => (
                     <li key={playlist._id} onClick={() => handlePlaylistClick(playlist._id)} className="border p-2 cursor-pointer hover:bg-gray-100">
                         {playlist.name}
+                        <DeletePlaylist playlistId={playlist._id} cookies={cookies}/>
                     </li>
                 ))}
             </ul>
