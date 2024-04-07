@@ -39,12 +39,12 @@ const Getcurrentuser = (cookies) => {
       <h1>Welcome, {currentUser.username}</h1>
       <p>Email: {currentUser.email}</p>
       <p>Full Name: {currentUser.fullname}</p>
-      <p>{currentUser._id}</p>
+      
       
       {/* Add more user information as needed */}
       <Subscribers cookies={cookies.cookies} channelId={currentUser._id}/>
-      <Channel cookies={cookies.cookies} channel={currentUser._id}/>
-      <Subscribed cookies={cookies.cookies}/>
+     {/* <Channel cookies={cookies.cookies} channel={currentUser._id}/>*/}
+      <Subscribed cookies={cookies.cookies}/><br/>
     </div>
   );
 };

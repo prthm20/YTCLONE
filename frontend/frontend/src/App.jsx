@@ -59,7 +59,7 @@ const App = () => {
       <Routes>
         
         <Route path="/" element={<Allviedeos isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} cookies={cookies} />} />
-        <Route path="/Home" element={<Home />} />
+        <Route path="/Home" element={<Home cookies={cookies} />} />
         <Route path="/actions" element={<Actions isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} logout={logout} />} />
         <Route path="/login" element={<Login setCookies={setCookies} setIsAuthenticated={setIsAuthenticated}/>} />
         <Route path="/register" element={<RegisterForm />} />
