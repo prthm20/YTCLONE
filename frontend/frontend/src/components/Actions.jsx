@@ -25,6 +25,16 @@ const Actions = ({ isAuthenticated, setIsAuthenticated, logout }) => {
             <p className="text-gray-700 mb-2">Create and manage your playlists.</p>
             <Link to="/createplaylist" className="text-blue-500 hover:underline block">Create Playlist</Link>
           </div>
+          <div className="border border-gray-300 rounded p-4">
+            <h3 className="text-xl font-semibold mb-2">Update Account</h3>
+            <p className="text-gray-700 mb-2">Create and manage your playlists.</p>
+            <Link to="/updateaccount" className="text-blue-500 hover:underline block">update account</Link>
+          </div>
+          <div className="border border-gray-300 rounded p-4">
+            <h3 className="text-xl font-semibold mb-2">Update image</h3>
+            <p className="text-gray-700 mb-2">Update image</p>
+            <Link to="/updateimage" className="text-blue-500 hover:underline block">update image</Link>
+          </div>
         </div>
       )}
     </div>

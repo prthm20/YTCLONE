@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DeletePlaylist from './DeletePlaylist';
+import Removefromplaylist from './Removefromplaylist';
 
 const Dashboard = ({ cookies }) => {
     const [playlists, setPlaylists] = useState([]);
@@ -72,6 +73,7 @@ const Dashboard = ({ cookies }) => {
                                     Your browser does not support the video tag.
                                 </video>
                                 <a href={video.viedeoFile} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline block mt-2">Watch Video</a>
+                                <Removefromplaylist playlistId={selectedPlaylist} videoId={video._id} cookies={cookies}/>
                             </li>
                         ))}
                     </ul>

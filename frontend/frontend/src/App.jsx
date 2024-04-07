@@ -18,6 +18,8 @@ import Dashboard from './components/Dashboard';
 import Getcurrentuser from './components/Getcurrentuser';
 import Togglesubscribe from './components/Togglesubscribe';
 import Subscribers from './components/Subscribers';
+import Updateaccount from './components/Updateaccount';
+import Updateavatar from './components/Updateavatar';
 
 const App = () => {
   // State to manage authentication status
@@ -71,6 +73,8 @@ const App = () => {
         <Route path="/addtoplaylist" element={<Addtoplaylist  />}/>
         <Route path="/dashboard" element={<Dashboard isAuthenticated={isAuthenticated} cookies={cookies} />}/>
         <Route path="/currentuser" element={<Getcurrentuser cookies={cookies}/>}/>
+        <Route path="/updateaccount" element={<Updateaccount cookies={cookies}/>}/>
+        <Route path="/updateimage" element={<Updateavatar cookies={cookies}/>}/>
         
 
        {/* <Route path="/getall" element={<Allviedeos isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} cookies={cookies}/>} />*/}

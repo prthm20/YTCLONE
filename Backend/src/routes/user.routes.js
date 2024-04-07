@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {upload} from "../middlewears/multer.middlewear.js"
-import { changecurrentpassword, getCurrentUser, getUserchannelprofile, getWatchhistory, loginUser, logoutuser, refreshAccessToken, registerUser, updateAccountdetails } from "../controllers/user.controller.js";
+import { changecurrentpassword, getCurrentUser, getUserchannelprofile, getWatchhistory, loginUser, logoutuser, refreshAccessToken, registerUser, updateAccountdetails, updateuseravatar } from "../controllers/user.controller.js";
 import { verifyJwt } from "../middlewears/auth.middlewear.js";
 import { deleteVideo, getAllVideos, publishAVideo, togglePublishStatus, updateVideo } from "../controllers/video.controller.js";
 import { getVideoById } from "../controllers/video.controller.js";
@@ -11,6 +11,7 @@ import { addComment, deleteComment, getVideoComments, updateComment } from "../c
 import { getSubscribedChannels, getUserChannelSubscribers, toggleSubscription } from "../controllers/subscription.controller.js";
 import { addVideoToPlaylist, createPlaylist, deletePlaylist, getPlaylistById, getUserPlaylists, removeVideoFromPlaylist, updatePlaylist } from "../controllers/playlist.controller.js";
 import { getChanVideos, getChannelStats, getChannelVideos } from "../controllers/dashboard.controller.js";
+
 
 const router=Router();
 
@@ -78,7 +79,7 @@ router.route("/refresh-accesstoken").post(refreshAccessToken)
 router.route("/change-password").post(verifyJwt,changecurrentpassword)
 router.route("/current-user").get(verifyJwt,getCurrentUser)
 router.route("/update-account").patch(verifyJwt,updateAccountdetails)
-router.route("/update-image").patch(verifyJwt,upload.single("avatar"),updateAccountdetails)
+router.route("/update-image").patch(verifyJwt,upload.single("avatar"),updateuseravatar)
 router.route("/c/:username").get(verifyJwt,getUserchannelprofile)
 router.route("/history").get(verifyJwt,getWatchhistory)
 
