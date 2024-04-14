@@ -7,6 +7,7 @@ import Togglesubscribe from './Togglesubscribe';
 import Subscribers from './Subscribers';
 import Subscribed from './Subscribed';
 import Chanprofile from './Chanprofile';
+import Likevideo from './Likevideo';
 
 const Allviedeos = ({ isAuthenticated, setIsAuthenticated, cookies }) => {
     const [videos, setVideos] = useState([]);
@@ -54,6 +55,7 @@ const Allviedeos = ({ isAuthenticated, setIsAuthenticated, cookies }) => {
                         <button onClick={atpp} className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>addto playlist</button>
                         {atp && <Addtoplaylist cookies={cookies} videoToAdd={video._id} />}
                         <Chanprofile cookies={cookies} channelId={video.owner} />
+                        <Likevideo videoId={video._id} cookies={cookies}/>
                     </div>
                 ))}
                         </div>
