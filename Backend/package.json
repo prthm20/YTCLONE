@@ -2,7 +2,7 @@
   "name": "youtubeclone",
   "version": "1.0.0",
   "description": "This is a youtube clone",
-  "type": "module",
+  "type":"module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
