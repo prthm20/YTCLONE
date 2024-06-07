@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+
+
 const RegisterForm = () => {
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     fullname: '',
     username: '',
@@ -32,15 +36,18 @@ const RegisterForm = () => {
     try {
       const response = await axios.post('http://localhost:8000/api/v1/users/register', data);
       console.log(response.data);
+      setSuccessMessage(response.data.message);
     } catch (error) {
       console.error('Error during registration:', error.message);
+      setErrorMessage('Registration error !recheck credentials ');
     }
   };
 
   return (
     <div className="container mx-auto max-w-md mt-20">
+       {successMessage && <p className="text-green-600 mt-2">{successMessage}</p>}
+      {errorMessage && <p className="text-red-600 mt-2">{errorMessage}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Input fields for registration */}
         <label className="block">
           Full Name:
           <input
@@ -103,6 +110,7 @@ const RegisterForm = () => {
           Submit
         </button>
       </form>
+     
     </div>
   );
 };

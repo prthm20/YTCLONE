@@ -8,6 +8,7 @@ import Subscribers from './Subscribers';
 import Subscribed from './Subscribed';
 import Chanprofile from './Chanprofile';
 import Likevideo from './Likevideo';
+import { Button } from './ui/button';
 
 const Allviedeos = ({ isAuthenticated, setIsAuthenticated, cookies }) => {
     const [videos, setVideos] = useState([]);
@@ -49,14 +50,16 @@ const Allviedeos = ({ isAuthenticated, setIsAuthenticated, cookies }) => {
                             Your browser does not support the video tag.
                         </video>
                         <a href={video.viedeoFile} target='_blank' rel='noopener noreferrer' className='text-black-500 hover:underline block mb-2'>Watch Video</a>
-                        <button onClick={comm} className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-2'>comments</button>
+                        <Button onClick={comm}>comments</Button>
                         {com && <Commentviedeo videoId={video._id} cookies={cookies} />}
                         {com && <Viedeocomments videoId={video._id} />}
-                        <button onClick={atpp} className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>addto playlist</button>
+                        <Button onClick={atpp}>Add to playlist</Button>
                         {atp && <Addtoplaylist cookies={cookies} videoToAdd={video._id} />}
                         <Chanprofile cookies={cookies} channelId={video.owner} />
                         <Likevideo videoId={video._id} cookies={cookies}/>
+                        
                     </div>
+                    
                 ))}
                         </div>
 <Subscribed cookies={cookies} />

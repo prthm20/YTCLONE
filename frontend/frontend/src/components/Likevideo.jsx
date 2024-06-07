@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import { ThumbsUp } from 'lucide-react';
+import { Toggle } from './ui/toggle';
 const Likevideo = (videoId,cookies) => {
     const[isLiked,setIsLiked]=useState();
     const handleLikeToggle = async () => {
@@ -18,7 +20,7 @@ const Likevideo = (videoId,cookies) => {
         
         return(<div>
    
-    <button  onClick={handleLikeToggle}>like</button>
+    <button  onClick={handleLikeToggle}><Toggle><ThumbsUp className=' bg-slate-800  fill-slate-400'/></Toggle></button>
 
   </div>)
 }

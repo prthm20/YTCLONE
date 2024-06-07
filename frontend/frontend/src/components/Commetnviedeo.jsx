@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const Commentviedeo = ({ videoId, cookies }) => {
+    const [successMessage, setSuccessMessage] = useState('');
     // State to manage form data
     const [formData, setFormData] = useState({
         content: '',
@@ -23,6 +24,7 @@ const Commentviedeo = ({ videoId, cookies }) => {
                 Authorization: `Bearer ${accessToken}`
             }
         });
+        setSuccessMessage("comment added");
 
         // Clear form data after submission
         setFormData({ content: '' });
@@ -50,6 +52,8 @@ const Commentviedeo = ({ videoId, cookies }) => {
                     Post Comment
                 </button>
             </form>
+            {successMessage && <p className="text-green-600 mt-2">{successMessage}</p>}
+            
         </div>
     );
 };
