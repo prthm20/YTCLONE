@@ -23,6 +23,7 @@ const Allviedeos = ({ isAuthenticated, setIsAuthenticated, cookies }) => {
         try {
             const accessToken = cookies.accessToken;
             const response = await axios.get('https://va-backend-mu.vercel.app/api/v1/users/getall');
+            console.log(response.data)
             setVideos(response.data.data);
         } catch (error) {
             console.error('Error fetching videos:', error);

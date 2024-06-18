@@ -102,15 +102,15 @@ const registerUser = asyncHandler(async (req, res) => {
   //if (coverImage && !coverImage.url) {
   //throw new ApiError(400, "Cover image upload failed or path not defined");
   //}
-  if (avatar && avatar.url) {
-    const avatarUrl = avatar.url;
+  if (avatar && avatar.secure_url) {
+    const avatarUrl = avatar.secure_url;
     console.log("Avatar URL:", avatarUrl);
 
     // Now you can use the avatarUrl as needed (e.g., store it in the database)
   } else {
     throw new ApiError(400, "Avatar upload failed or URL not defined");
   }
-  const avatarurl = avatar.url;
+  const avatarurl = avatar.secure_url;
   // const coverImageurl=coverImage.url;
   const user = await User.create({
     fullname,
