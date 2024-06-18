@@ -10,6 +10,7 @@ import bodyParser from "body-parser";
 
 app.use(cors({
     origin:'https://va-frontend.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials:true,
     optionsSuccessStatus: 200,
 }));
