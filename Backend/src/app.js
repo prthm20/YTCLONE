@@ -9,8 +9,9 @@ import bodyParser from "body-parser";
 
 
 app.use(cors({
-    origin:process.env.CORS_ORIGIN,
-    credentials:true
+    origin:'https://va-frontend.vercel.app',
+    credentials:true,
+    optionsSuccessStatus: 200,
 }));
 app.use(express.json({}));
 app.use(express.urlencoded({extended:true}));
