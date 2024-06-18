@@ -67,9 +67,9 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 
   console.log(req.body); // Log the entire req.body object
-  console.log(req.files); // Log the entire req.files object
+  console.log(req.file); // Log the entire req.files object
 
-  const avatarFiles = req.files && req.files.avatar;
+  const avatarFiles = req.file;
   //const coverImageFiles = req.files && req.files.coverImage; // Define coverImageFiles
 
   //if (!avatarFiles || !avatarFiles[0] || !avatarFiles[0].path) {
@@ -80,7 +80,7 @@ const registerUser = asyncHandler(async (req, res) => {
   //const currentModuleDir = path.dirname(decodeURIComponent(currentModulePath));
   //
   //const avatarlocalpath = path.join(currentModuleDir, avatarFile.path);
-  const avatarlocalpath = avatarFiles ? avatarFiles[0]?.path : null;
+  const avatarlocalpath = avatarFiles ? avatarFiles?.path : null;
   //const coverImagelocalpath =coverImageFiles ? coverImageFiles[0]?.path : null;
 
   //if(!avatarlocalpath){

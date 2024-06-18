@@ -16,11 +16,8 @@ import { getChanVideos, getChannelStats, getChannelVideos } from "../controllers
 const router=Router();
 
 router.route("/register").post(
-    upload.fields([
-        { name: "avatar", maxCount: 1 },
-        { name: "coverImage", maxCount: 1 },
-    ])   
-    ,registerUser);
+    upload.single('avatar')   
+   ,registerUser);
 router.route("/login").post(loginUser) 
 
 //viedeo controller routes

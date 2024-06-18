@@ -1,15 +1,16 @@
 {
   "version": 2,
+  "name": "Prthm-tube-backend",
   "builds": [
-    {
-      "src": "*.js",
-      "use": "@vercel/node"
-    }
+  {
+  "src": "src/index.js",
+  "use": "@vercel/node"
+  }
   ],
   "routes": [
-    {
-      "src": "/(.*)"
-      
-    }
+  {
+  "src": "/(.*)",
+  "dest": "/src/index.js"
+  }
   ]
-}
+  }

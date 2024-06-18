@@ -1,6 +1,12 @@
+// postcss.config.js
+import discardUnused from 'postcss-discard-unused';
+
 export default {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
-}
+  plugins: [
+    discardUnused({
+      keyframes: false,
+      // Additional options if needed
+    }),
+    // Other plugins as needed
+]
+};
