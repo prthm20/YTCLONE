@@ -25,7 +25,7 @@ const Addtoplaylist = ({ cookies, videoToAdd }) => {
     const addToPlaylist = async () => {
         try {
             const accessToken = cookies.accessToken;
-            const response = await axios.post(`http://localhost:8000/api/v1/users/addtoplaylist/${selectedPlaylist}/${videoToAdd}`, {
+            const response = await axios.post(`https://va-backend-mu.vercel.app/api/v1/users/addtoplaylist/${selectedPlaylist}/${videoToAdd}`, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`
                 }

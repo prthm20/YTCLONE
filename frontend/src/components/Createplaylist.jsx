@@ -19,7 +19,7 @@ const Createplaylist = ({ isAuthenticated, setIsAuthenticated, cookies }) => {
 
     try {
       const accessToken = cookies.accessToken;
-      const response = await axios.post('http://localhost:8000/api/v1/users/createplaylist', formData, {
+      const response = await axios.post('https://va-backend-mu.vercel.app/api/v1/users/createplaylist', formData, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

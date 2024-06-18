@@ -10,7 +10,7 @@ const Updateaccount = (cookies) => {
     e.preventDefault();
     
     const accessToken =cookies.cookies.accessToken;
-      const response = await axios.patch(`http://localhost:8000/api/v1/users/update-account`, {
+      const response = await axios.patch(`https://va-backend-mu.vercel.app/api/v1/users/update-account`, {
         fullname,
         email
       },{headers: {

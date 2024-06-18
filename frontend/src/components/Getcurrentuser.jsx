@@ -15,7 +15,7 @@ const Getcurrentuser = (cookies) => {
       try {
         const accessToken =cookies.cookies.accessToken;
         console.log(accessToken)
-        const response = await axios.get('http://localhost:8000/api/v1/users/current-user', {
+        const response = await axios.get('https://va-backend-mu.vercel.app/api/v1/users/current-user', {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },

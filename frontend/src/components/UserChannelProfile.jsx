@@ -9,7 +9,7 @@ const UserChannelProfile = ({ username ,cookies}) => {
       try {
         console.log(cookies)
         const accessToken = cookies.cookies.accessToken;
-        const response = await axios.get(`http://localhost:8000/api/v1/users/c/${username}`, {
+        const response = await axios.get(`https://va-backend-mu.vercel.app/api/v1/users/c/${username}`, {
             headers: {
                 Authorization: `Bearer ${accessToken}`
             }

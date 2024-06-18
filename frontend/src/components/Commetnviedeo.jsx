@@ -19,7 +19,7 @@ const Commentviedeo = ({ videoId, cookies }) => {
 
         // Make a login request to the server
         const accessToken = cookies.accessToken;
-        await axios.post(`http://localhost:8000/api/v1/users/addcomments/${videoId}`, formData, {
+        await axios.post(`https://va-backend-mu.vercel.app/api/v1/users/addcomments/${videoId}`, formData, {
             headers: {
                 Authorization: `Bearer ${accessToken}`
             }

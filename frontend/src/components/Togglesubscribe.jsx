@@ -11,7 +11,7 @@ const [subscribed,setsubscribed]=useState();
        console.log(cookies)
         const accessToken =cookies.accessToken;
         console.log(accessToken)
-const response = await axios.post(`http://localhost:8000/api/v1/users/subscribe/${channelId}`,{headers: {
+const response = await axios.post(`https://va-backend-mu.vercel.app/api/v1/users/subscribe/${channelId}`,{headers: {
     Authorization: `Bearer ${accessToken}`,
   }},
  {headers: {

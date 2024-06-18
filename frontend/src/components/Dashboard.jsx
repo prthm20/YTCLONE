@@ -30,12 +30,12 @@ const Dashboard = ({ cookies }) => {
     const fetchVideosForPlaylist = async (playlistId) => {
         try {
             const accessToken = cookies.accessToken;
-            const playlistResponse = await axios.get(`http://localhost:8000/api/v1/users/playlistbyid/${playlistId}`, {
+            const playlistResponse = await axios.get(`https://va-backend-mu.vercel.app/api/v1/users/playlistbyid/${playlistId}`, {
                 headers: { Authorization: `Bearer ${accessToken}` }
             });
             const playlistVideos = await Promise.all(
                 playlistResponse.data.data.viedeo.map(async (videoId) => {
-                    const videoResponse = await axios.get(`http://localhost:8000/api/v1/users/viedeos/${videoId}`, {   headers: { Authorization: `Bearer ${accessToken}` } });
+                    const videoResponse = await axios.get(`https://va-frontend.vercel.app/api/v1/users/viedeos/${videoId}`, {   headers: { Authorization: `Bearer ${accessToken}` } });
                     return videoResponse.data.data;
                 })
             );

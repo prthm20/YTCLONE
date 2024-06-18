@@ -11,7 +11,7 @@ const Viedeocomments = ({ videoId }) => {
 
     const fetchComments = async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/api/v1/users/getcomments/${videoId}`);
+            const response = await axios.get(`https://va-backend-mu.vercel.app/api/v1/users/getcomments/${videoId}`);
             setComments(response.data.data);
         } catch (error) {
             console.error('Error fetching comments:', error);

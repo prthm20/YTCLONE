@@ -7,7 +7,7 @@ const Removefromplaylist = ({ playlistId, videoId ,cookies}) => {
   const handleRemoveVideo = async () => {
     try {
         const accessToken = cookies.accessToken;
-      const response = await axios.delete(`http://localhost:8000/api/v1/users/removefromplaylist/${playlistId}/${videoId}`, {
+      const response = await axios.delete(`https://va-backend-mu.vercel.app/api/v1/users/removefromplaylist/${playlistId}/${videoId}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         }

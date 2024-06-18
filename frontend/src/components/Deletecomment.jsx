@@ -5,7 +5,7 @@ const Deletecomment = ({ commentId , cookies }) => {
     const handleDelete = async () => {
         try {
             const accessToken = cookies.accessToken;
-            await axios.delete(`http://localhost:8000/api/v1/users/deletecomment/${commentId}`,{
+            await axios.delete(`https://va-backend-mu.vercel.app/api/v1/users/deletecomment/${commentId}`,{
                 headers: {
                     Authorization: `Bearer ${accessToken}`
                 }

@@ -5,7 +5,7 @@ const DeletePlaylist = ({ playlistId,cookies }) => {
     const handleDelete = async () => {
         try {
             const accessToken = cookies.accessToken;
-            const response = await axios.delete(`http://localhost:8000/api/v1/users/deleteplaylist/${playlistId}`, {
+            const response = await axios.delete(`https://va-backend-mu.vercel.app/api/v1/users/deleteplaylist/${playlistId}`, {
               headers: {
                 Authorization: `Bearer ${accessToken}`,
               },

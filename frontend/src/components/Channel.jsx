@@ -15,7 +15,7 @@ const Channel = ({ isAuthenticated, setIsAuthenticated, cookies,channel }) => {
     const fetchVideos = async () => {
         try {
             const accessToken = cookies.accessToken;
-            const response = await axios.get(`http://localhost:8000/api/v1/users/chanviedeos/${channel}`, {
+            const response = await axios.get(`https://va-backend-mu.vercel.app/api/v1/users/chanviedeos/${channel}`, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`
                 }

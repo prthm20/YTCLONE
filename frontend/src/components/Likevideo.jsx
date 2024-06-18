@@ -12,7 +12,7 @@ const Likevideo = (videoId,cookies) => {
          console.log(viedeoId)
             const accessToken = videoId.cookies.accessToken;
             console.log(accessToken)
-        const response = await axios.post(`http://localhost:8000/api/v1/users/like/${viedeoId}`,{},{ headers: {
+        const response = await axios.post(`https://va-backend-mu.vercel.app/api/v1/users/like/${viedeoId}`,{},{ headers: {
             Authorization: `Bearer ${accessToken}`,
           }});
           setIsLiked(!isLiked);

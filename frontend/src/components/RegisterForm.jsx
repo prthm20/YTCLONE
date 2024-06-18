@@ -34,7 +34,7 @@ const RegisterForm = () => {
     data.append('avatar', formData.avatar);
 
     try {
-      const response = await axios.post('http://localhost:8000/api/v1/users/register', data);
+      const response = await axios.post('https://va-backend-mu.vercel.app/api/v1/users/register', data);
       console.log(response.data);
       setSuccessMessage(response.data.message);
     } catch (error) {
